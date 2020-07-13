@@ -29,8 +29,11 @@ app.command("/mhfa", async ({ logger, command, ack, respond }) => {
         text: `We have received a new message from ${command.user_name}`,
       }),
     });
-    logger.info(slackHookResponse);
     if (slackHookResponse.ok) {
+      logger.info(
+        "Slack Hook request succeeded with JSON response",
+        await slackHookResponse.json
+      );
       await respond({
         text:
           "Thanks for reaching out. Your message has been highlighted to the Mental Health First Aiders and one of them will be in touch as soon as possible.",
@@ -39,7 +42,7 @@ app.command("/mhfa", async ({ logger, command, ack, respond }) => {
       });
     } else {
       throw Error(
-        `Slack Hook response was not 200: ${slackHookResponse.status}`
+        `Slack Hook request failed: ${slackHookResponse.status} ${slackHookResponse.statusText}`
       );
     }
   } catch (e) {
