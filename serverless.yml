@@ -20,9 +20,3 @@ functions:
       - http:
           method: post
           path: /slack/events
-      - http:
-          method: get
-          path: /slack/install
-      - http:
-          method: get
-          path: /slack/oauth_redirect
