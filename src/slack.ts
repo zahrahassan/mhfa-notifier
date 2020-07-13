@@ -12,7 +12,6 @@ const expressReceiver = new ExpressReceiver({
 const app = new App({
   token: env.get("SLACK_BOT_TOKEN").required().asString(),
   receiver: expressReceiver,
-  processBeforeResponse: true,
 });
 
 const slackHookUrl = env.get("SLACK_HOOK_URL").required().asString();
