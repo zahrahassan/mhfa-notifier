@@ -9,9 +9,8 @@ provider:
   runtime: nodejs12.x
   environment:
     SLACK_SIGNING_SECRET: ${env:SLACK_SIGNING_SECRET}
-    SLACK_CLIENT_ID: ${env:SLACK_CLIENT_ID}
-    SLACK_CLIENT_SECRET: ${env:SLACK_CLIENT_SECRET}
-    STATE_SECRET: ${env:STATE_SECRET}
+    SLACK_BOT_TOKEN: ${env:SLACK_BOT_TOKEN}
+    SLACK_HOOK_URL: ${env:SLACK_HOOK_URL}
 
 functions:
   mhfa-slack-handler:
@@ -20,9 +19,3 @@ functions:
       - http:
           method: post
           path: /slack/events
-      - http:
-          method: get
-          path: /slack/install
-      - http:
-          method: get
-          path: /slack/oauth_redirect
