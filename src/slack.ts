@@ -35,7 +35,8 @@ app.command("/mhfa", async ({ logger, command, ack, respond }) => {
       );
       await respond({
         text:
-          "Thanks for reaching out. Your message has been highlighted to the Mental Health First Aiders and one of them will be in touch as soon as possible.",
+          "Thanks for reaching out. Your message has been highlighted to the Mental Health First Aiders and one of them will be in touch as soon as possible. " +
+            "If you need more immediate help then you may find useful info in https://www.mentalhealthatwork.org.uk/urgent-help/",
         response_type: "ephemeral",
         as_user: true,
       });
